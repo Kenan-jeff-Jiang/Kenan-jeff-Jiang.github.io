@@ -1,485 +1,241 @@
 <!DOCTYPE html>
+<!--
+  Adapted from the MIT-licensed Config-Driven Academic Website Template.
+  Original template copyright (c) 2025 Sixun Dong.
+-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kenan Jiang</title>
+    <meta name="description" content="Kenan Jiang is a PhD student at Emory University researching LLM reasoning, planning, and agentic systems.">
+    <meta name="keywords" content="LLM, Agents, Reasoning, Planning, NLP, Dense Retrieval">
+    <meta name="author" content="Kenan Jiang">
+    <meta property="og:title" content="Kenan Jiang - Academic Homepage">
+    <meta property="og:description" content="Research in LLM reasoning, planning, and agentic systems.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/profile.jpg">
+    <title>Kenan Jiang - Academic Homepage</title>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-        : root {
-            --ink: #1a1a1a;
-            --paper: #f5f2ec;
-            --cream: #ede9e0;
-            --accent: #c0392b;
-            --accent-light: #e8d5d3;
-            --muted: #6b6560;
-            --border: #d4cfc6;
-            --serif: 'DM Serif Display', serif;
-            --sans: 'DM Sans', sans-serif;
-            --mono: 'DM Mono', monospace;
-        }
-
-        html { scroll-behavior: smooth; }
-
-        body {
-            background: var(--paper);
-            color: var(--ink);
-            font-family: var(--sans);
-            font-weight: 300;
-            line-height: 1.7;
-            font-size: 16px;
-            -webkit-font-smoothing: antialiased;
-        }
-
-        /* Nav */
-        nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 100;
-            display: flex;
-            justify-content: flex-end;
-            padding: 1.25rem 2.5rem;
-            background: rgba(245, 242, 236, 0.88);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2.5rem;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: var(--muted);
-            font-family: var(--mono);
-            font-size: 0.8rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-            transition: color 0.2s;
-        }
-
-        nav a:hover { color: var(--accent); }
-
-        /* Layout */
-        .container {
-            max-width: 860px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        section {
-            padding: 5rem 0;
-        }
-
-        section + section {
-            border-top: 1px solid var(--border);
-        }
-
-        /* Hero / About */
-        #about {
-            padding-top: 8rem;
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 3rem;
-            align-items: start;
-        }
-
-        .profile-pic {
-            width: 100%;
-            aspect-ratio: 1;
-            object-fit: cover;
-            border-radius: 4px;
-            filter: grayscale(15%);
-            border: 1px solid var(--border);
-            display: block;
-        }
-
-        .about-text h1 {
-            font-family: var(--serif);
-            font-size: clamp(2.2rem, 5vw, 3.2rem);
-            line-height: 1.1;
-            margin-bottom: 0.4rem;
-            letter-spacing: -0.01em;
-        }
-
-        .about-text .subtitle {
-            font-family: var(--mono);
-            font-size: 0.78rem;
-            color: var(--accent);
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            margin-bottom: 1.5rem;
-        }
-
-        .about-text p {
-            color: var(--muted);
-            font-size: 0.97rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .about-text a {
-            color: var(--ink);
-            text-decoration: underline;
-            text-decoration-color: var(--accent-light);
-            text-underline-offset: 3px;
-            transition: text-decoration-color 0.2s, color 0.2s;
-        }
-
-        .about-text a:hover {
-            color: var(--accent);
-            text-decoration-color: var(--accent);
-        }
-
-        .interests-row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 1.4rem;
-        }
-
-        .tag {
-            font-family: var(--mono);
-            font-size: 0.72rem;
-            letter-spacing: 0.06em;
-            padding: 0.3rem 0.75rem;
-            background: var(--cream);
-            border: 1px solid var(--border);
-            border-radius: 2px;
-            color: var(--muted);
-        }
-
-        .social-row {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
-        }
-
-        .social-row a {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-family: var(--mono);
-            font-size: 0.75rem;
-            letter-spacing: 0.06em;
-            color: var(--muted);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .social-row a:hover { color: var(--accent); }
-        .social-row i { font-size: 1rem; }
-
-        /* Section headings */
-        .section-label {
-            font-family: var(--mono);
-            font-size: 0.72rem;
-            letter-spacing: 0.14em;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 1.8rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .section-label::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: var(--border);
-        }
-
-        /* News */
-        .news-list { list-style: none; }
-
-        .news-list li {
-            display: grid;
-            grid-template-columns: 80px 1fr;
-            gap: 1rem;
-            padding: 1rem 0;
-            border-bottom: 1px solid var(--cream);
-            font-size: 0.94rem;
-            color: var(--muted);
-            align-items: baseline;
-        }
-
-        .news-list li:last-child { border-bottom: none; }
-
-        .news-date {
-            font-family: var(--mono);
-            font-size: 0.72rem;
-            color: var(--accent);
-            letter-spacing: 0.06em;
-            padding-top: 0.15rem;
-        }
-
-        /* Publications */
-        .pub-list { list-style: none; }
-
-        .pub-item {
-            padding: 1.5rem 0;
-            border-bottom: 1px solid var(--cream);
-        }
-
-        .pub-item:last-child { border-bottom: none; }
-
-        .pub-item h3 {
-            font-family: var(--serif);
-            font-size: 1.1rem;
-            font-weight: 400;
-            line-height: 1.4;
-            margin-bottom: 0.4rem;
-        }
-
-        .pub-item h3 a {
-            color: var(--ink);
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-
-        .pub-item h3 a:hover { color: var(--accent); }
-
-        .pub-authors {
-            font-size: 0.85rem;
-            color: var(--muted);
-            margin-bottom: 0.2rem;
-        }
-
-        .pub-venue {
-            font-family: var(--mono);
-            font-size: 0.72rem;
-            letter-spacing: 0.06em;
-            color: var(--accent);
-            margin-bottom: 0.6rem;
-        }
-
-        .pub-desc {
-            font-size: 0.88rem;
-            color: var(--muted);
-            line-height: 1.6;
-        }
-
-        .full-list-link {
-            font-family: var(--mono);
-            font-size: 0.72rem;
-            letter-spacing: 0.08em;
-            color: var(--muted);
-            text-decoration: none;
-            margin-left: 1rem;
-            border: 1px solid var(--border);
-            padding: 0.2rem 0.6rem;
-            border-radius: 2px;
-            transition: all 0.2s;
-            vertical-align: middle;
-        }
-
-        .full-list-link:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-        }
-
-        /* Contact */
-        #contact p {
-            font-size: 0.97rem;
-            color: var(--muted);
-        }
-
-        #contact a {
-            color: var(--ink);
-            font-family: var(--mono);
-            font-size: 0.9rem;
-            text-decoration: none;
-            border-bottom: 1px solid var(--accent-light);
-            padding-bottom: 1px;
-            transition: border-color 0.2s, color 0.2s;
-        }
-
-        #contact a:hover {
-            color: var(--accent);
-            border-color: var(--accent);
-        }
-
-        /* Footer */
-        footer {
-            border-top: 1px solid var(--border);
-            padding: 2rem 0;
-            text-align: center;
-        }
-
-        footer p {
-            font-family: var(--mono);
-            font-size: 0.72rem;
-            color: var(--border);
-            letter-spacing: 0.08em;
-        }
-
-        /* Animations */
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(18px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-        .about-grid, .section-label, .news-list, .pub-list {
-            animation: fadeUp 0.6s ease both;
-        }
-
-        /* Mobile */
-        @media (max-width: 640px) {
-            nav { padding: 1rem 1.25rem; }
-            nav ul { gap: 1.5rem; }
-            .container { padding: 0 1.25rem; }
-
-            section { padding: 3.5rem 0; }
-            #about { padding-top: 6rem; }
-
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 1.75rem;
-            }
-
-            .profile-pic {
-                width: 130px;
-            }
-
-            .news-list li {
-                grid-template-columns: 1fr;
-                gap: 0.25rem;
-            }
-
-            .social-row { flex-wrap: wrap; }
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
+    <header class="header">
+        <nav class="nav" aria-label="Main navigation">
+            <div class="nav-container">
+                <a href="#bio" class="nav-link active">Bio</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+            </div>
+        </nav>
+    </header>
 
-<nav>
-    <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#news">News</a></li>
-        <li><a href="#publications">Papers</a></li>
-        <li><a href="#contact">Contact</a></li>
-    </ul>
-</nav>
+    <main class="main">
+        <section class="hero" id="bio">
+            <div class="container">
+                <div class="hero-content">
+                    <div class="hero-photo">
+                        <img src="images/profile.jpg" alt="Kenan Jiang" class="profile-image">
+                    </div>
 
-<div class="container">
+                    <div class="hero-info">
+                        <h1 class="hero-title">Kenan Jiang</h1>
+                        <p class="hero-affiliation">Emory University</p>
 
-    <section id="about">
-        <div class="about-grid">
-            <img src="profile.jpg" alt="Kenan Jiang" class="profile-pic">
-            <div class="about-text">
-                <h1>Kenan Jiang</h1>
-                <p class="subtitle">PhD Student · Emory University CS</p>
-                <p>
-                    Advised by <a href="https://www.cs.emory.edu/~fliu40/" target="_blank">Dr. Fei Liu</a>,
-                    with research interests in <strong>LLM Reasoning &amp; Planning</strong> and agentic systems.
-                </p>
-                <p>
-                    B.S. in Computer Science &amp; Applied Mathematics, UC Berkeley (2021).
-                    Previously ML Software Engineer at <a href="https://www.linqia.com/" target="_blank">Linqia</a> and
-                    research intern at <a href="http://eric-lab.soe.ucsc.edu/home" target="_blank">ERIC Lab</a>, UC Santa Cruz.
-                </p>
-                <p>
-                    Outside research: <a href="https://en.wikipedia.org/wiki/Wing_Chun" target="_blank">Wing Chun</a> practitioner &amp;
-                    <a href="https://en.wikipedia.org/wiki/Erhu" target="_blank">Erhu</a> player.
-                </p>
-                <div class="interests-row">
-                    <span class="tag">Reasoning &amp; Planning</span>
-                    <span class="tag">LLM Agents</span>
-                    <span class="tag">Dense Retrieval</span>
-                    <span class="tag">NLP</span>
-                </div>
-                <div class="social-row">
-                    <a href="https://www.linkedin.com/in/kenan-jiang-a652a2168/" target="_blank">
-                        <i class="fa-brands fa-linkedin"></i> LinkedIn
-                    </a>
-                    <a href="https://twitter.com/JiangKenan" target="_blank">
-                        <i class="fa-brands fa-twitter"></i> Twitter
-                    </a>
-                    <a href="https://scholar.google.com/citations?user=HkCq4xwAAAAJ&hl=en&oi=ao" target="_blank">
-                        <i class="fa-brands fa-google-scholar"></i> Scholar
-                    </a>
-                    <a href="mailto:kenan.jiang@emory.edu">
-                        <i class="fa-solid fa-envelope"></i> Email
-                    </a>
+                        <div class="hero-description">
+                            <p>I am a PhD student in the Department of Computer Science at Emory University, fortunate to be advised by Prof. <a href="https://cs.emory.edu/~lxiong/" class="link" target="_blank" rel="noreferrer">Li Xiong</a>.</p>
+                            <p>Previously, I was fortunate to be advised by <a href="https://www.linkedin.com/in/feiliu01/" class="link" target="_blank" rel="noreferrer">Dr. Fei Liu</a>. Before graduate school, I was a ML Engineer at <a href="https://www.linqia.com/" class="link" target="_blank" rel="noreferrer">Linqia</a> and a research intern at <a href="http://eric-lab.soe.ucsc.edu/home" class="link" target="_blank" rel="noreferrer">ERIC Lab</a>, UCSC.</p>
+                            <p>I completed my undergraudate study in 2021 from UC Berkeley with double majors in Computer Science and Applied Mathematics.</p>
+                            <p>My research focuses on <em class="research-keywords">RSI LLM Agents, Privacy and Safety</em>.</p>
+                        </div>
+
+                        <div class="hero-links">
+                            <a href="mailto:kenan.jiang@emory.edu" class="hero-link" title="Email">
+                                <i class="fas fa-envelope" aria-hidden="true"></i> Email
+                            </a>
+                            <a href="https://scholar.google.com/citations?user=HkCq4xwAAAAJ&amp;hl=en&amp;oi=ao" class="hero-link" title="Scholar" target="_blank" rel="noreferrer">
+                                <i class="fas fa-graduation-cap" aria-hidden="true"></i> Scholar
+                            </a>
+                            <a href="https://twitter.com/JiangKenan" class="hero-link" title="X" target="_blank" rel="noreferrer">
+                                <i class="fab fa-x-twitter" aria-hidden="true"></i> X
+                            </a>
+                            <a href="https://www.linkedin.com/in/kenan-jiang-a652a2168/" class="hero-link" title="LinkedIn" target="_blank" rel="noreferrer">
+                                <i class="fab fa-linkedin" aria-hidden="true"></i> LinkedIn
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </section>
+
+        <section class="section-alt" id="news">
+            <div class="container">
+                <h2 class="section-title">Recent News</h2>
+                <div class="news-container">
+                    <div class="news-list">
+                        <div class="news-item">
+                            <span class="news-date">2026-05</span>
+                            <span class="news-content">I start my internship at <strong>Bosch USA</strong> this summer and work on LLM agents.</span>
+                        </div>
+                        <div class="news-item">
+                            <span class="news-date">2026-01</span>
+                            <span class="news-content">Received the <strong>$5,000 Tinker Research Grant</strong>!</span>
+                        </div>
+                        <div class="news-item">
+                            <span class="news-date">2025-12</span>
+                            <span class="news-content"><a href="https://aclanthology.org/2025.ijcnlp-long.141/" class="link" target="_blank" rel="noreferrer">HARBOR</a> was accepted to AACL 2025 (main track).</span>
+                        </div>
+                        <div class="news-item">
+                            <span class="news-date">2025-08</span>
+                            <span class="news-content">Completed a summer AI internship at <strong>PRGX</strong>.</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" id="publications">
+            <div class="container">
+                <h2 class="section-title">Selected Publications</h2>
+                <div class="publications-list">
+                    <article class="publication-item">
+                        <img src="images/harbor.png" alt="HARBOR paper preview" class="publication-image">
+                        <div class="publication-content">
+                            <p class="publication-title"><span class="publication-venue">AACL'25</span> HARBOR: Exploring Persona Dynamics in Multi-Agent Competition</p>
+                            <p class="publication-authors"><span class="author-highlight">Kenan Jiang</span>, Li Xiong, Fei Liu</p>
+                            <p class="publication-description">Probing persona and role-play's influence on rational decision-making in LLM agents.</p>
+                            <p class="publication-links"><i class="fas fa-file-alt" aria-hidden="true"></i> <a href="https://aclanthology.org/2025.ijcnlp-long.141/" target="_blank" rel="noreferrer">Paper</a></p>
+                        </div>
+                    </article>
+
+                    <article class="publication-item">
+                        <img src="images/comclip.png" alt="ComCLIP paper preview" class="publication-image">
+                        <div class="publication-content">
+                            <p class="publication-title"><span class="publication-venue">NAACL'24</span> ComCLIP: Training-Free Compositional Image and Text Matching</p>
+                            <p class="publication-authors"><span class="author-highlight">Kenan Jiang*</span>, Xuehai He*, Ruize Xu, Xin Eric Wang</p>
+                            <p class="publication-description">Improving zero-shot image-text matching capabilities of vision-language models without additional training.</p>
+                            <p class="publication-links"><i class="ai ai-arxiv" aria-hidden="true"></i> <a href="https://arxiv.org/abs/2211.13854" target="_blank" rel="noreferrer">Paper</a> / <i class="fab fa-github" aria-hidden="true"></i> <a href="https://github.com/UCSB-AI/ComCLIP" target="_blank" rel="noreferrer">Code</a></p>
+                        </div>
+                    </article>
+
+                    <article class="publication-item">
+                        <img src="images/wavelet.png" alt="Wavelet paper preview" class="publication-image">
+                        <div class="publication-content">
+                            <p class="publication-title"><span class="publication-venue">MLSys'21</span> Wavelet: Efficient DNN Training with Tick-Tock Scheduling</p>
+                            <p class="publication-authors">Guanhua Wang, Kehan Wang, <span class="author-highlight">Kenan Jiang</span>, Xiangjun Li, Ion Stoica</p>
+                            <p class="publication-description">Accelerating DNN training by intelligently utilizing available GPU memory throughout the training process.</p>
+                            <p class="publication-links"><i class="fas fa-file-alt" aria-hidden="true"></i> <a href="https://proceedings.mlsys.org/paper_files/paper/2021/file/099268c3121d49937a67a052c51f865d-Paper.pdf" target="_blank" rel="noreferrer">Paper</a></p>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="section-footer">
+                    <a href="https://scholar.google.com/citations?user=HkCq4xwAAAAJ&amp;hl=en&amp;oi=ao" class="btn btn-more" target="_blank" rel="noreferrer">View All Publications</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" id="experience">
+            <div class="container">
+                <h2 class="section-title">Industry Experience</h2>
+                <div class="experience-list">
+                    <article class="experience-item">
+                        <div class="experience-logo-frame">
+                            <img src="images/bosch.png" alt="Bosch logo" class="experience-logo">
+                        </div>
+                        <div class="experience-content">
+                            <p class="experience-position">LLM Agentic AI R&D Intern</p>
+                            <p class="experience-company">Bosch USA</p>
+                            <p class="experience-period">Summer 2026</p>
+                            <p class="experience-description">Research on self-improving LLM coding agents.</p>
+                        </div>
+                    </article>
+                    <article class="experience-item">
+                        <div class="experience-logo-frame">
+                            <img src="images/prgx.jpg" alt="PRGX logo" class="experience-logo">
+                        </div>
+                        <div class="experience-content">
+                            <p class="experience-position">AI Intern</p>
+                            <p class="experience-company">PRGX</p>
+                            <p class="experience-period">Summer 2025</p>
+                            <p class="experience-description">Design and build a semantic search system with Elasticsearch.</p>
+                        </div>
+                    </article>
+                    <article class="experience-item">
+                        <div class="experience-logo-frame">
+                            <img src="images/linqia.png" alt="Linqia logo" class="experience-logo">
+                        </div>
+                        <div class="experience-content">
+                            <p class="experience-position">Machine Learning Software Engineer</p>
+                            <p class="experience-company">Linqia</p>
+                            <p class="experience-period">2021 - 2023</p>
+                            <p class="experience-description">Develop AI-driven functionality for influencer-search platform.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" id="service">
+            <div class="container">
+                <h2 class="section-title">Academic Service</h2>
+                <div class="service-content">
+                    <div class="service-summary">
+                        <h3 class="service-title">Reviewer</h3>
+                        <p class="service-description"><strong>Conferences:</strong> ACL 2024 Student Research Workshop (SRW), EMNLP 2026</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-alt" id="education">
+            <div class="container">
+                <h2 class="section-title">Education</h2>
+                <div class="education-list">
+                    <article class="education-item">
+                        <span class="education-period">2024 - Present</span>
+                        <div class="education-content">
+                            <img src="images/emory-university-logo-png_seeklogo-486660.png" alt="Emory University logo" class="education-logo">
+                            <div class="education-info">
+                                <p class="education-degree">Ph.D. in Computer Science</p>
+                                <p class="education-institution">Emory University</p>
+                                <p class="education-details">Former Advisor: Prof. Fei Liu</p>
+                                <p class="education-details">Advisor: Prof. Li Xiong</p>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="education-item">
+                        <span class="education-period">2017 - 2021</span>
+                        <div class="education-content">
+                            <img src="images/Seal_of_University_of_California,_Berkeley.svg" alt="University of California, Berkeley seal" class="education-logo">
+                            <div class="education-info">
+                                <p class="education-degree">B.A. in Computer Science &amp; Applied Mathematics</p>
+                                <p class="education-institution">University of California, Berkeley</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="visitor-map-section" aria-label="Visitor map">
+                <div class="visitor-map">
+                    <script type="text/javascript" id="mapmyvisitors" src="//mapmyvisitors.com/map.js?d=eKeclA6p1VYOgbOR19qBcW0B0kdkpJpPmTUkyAxjbc0&amp;cl=ffffff&amp;w=a"></script>
+                </div>
+            </div>
+            <div class="footer-content">
+                <p>Last updated: <span id="last-updated">August 2026</span></p>
+                <p>&copy; <span id="current-year">2026</span> Kenan Jiang. All rights reserved.</p>
+            </div>
         </div>
-    </section>
-
-    <section id="news">
-        <div class="section-label">News</div>
-        <ul class="news-list">
-            <li>
-                <span class="news-date">March 2026</span>
-                <span>Happy to intern at Bosch USA this summer to research on LLM Agents!</span>
-            </li>
-            <li>
-                <span class="news-date">Jan 2026</span>
-                <span>Received the $5,000 <strong>Tinker Research Grant</strong>!</span>
-            </li>
-            <li>
-                <span class="news-date">Dec 2025</span>
-                <span><strong>HARBOR</strong> accepted to AACL 2025 (main track). Presenting online.</span>
-            </li>
-            <li>
-                <span class="news-date">Aug 2025</span>
-                <span>Completed summer AI internship at <strong>PRGX</strong>.</span>
-            </li>
-        </ul>
-    </section>
-
-    <section id="publications">
-        <div class="section-label">
-            Publications
-            <a href="https://scholar.google.com/citations?user=HkCq4xwAAAAJ&hl=en&oi=ao" target="_blank" class="full-list-link">Full List ↗</a>
-        </div>
-        <ul class="pub-list">
-            <li class="pub-item">
-                <p class="pub-venue">AACL 2025</p>
-                <h3><a href="https://aclanthology.org/2025.ijcnlp-long.141/" target="_blank">HARBOR: Exploring Persona Dynamics in Multi-Agent Competition</a></h3>
-                <p class="pub-authors">Kenan Jiang, Li Xiong, Fei Liu</p>
-                <p class="pub-desc">Probing Persona/Role-play's influence on LLM Agents' rational decision-making.</p>
-            </li>
-            <li class="pub-item">
-                <p class="pub-venue">NAACL 2024</p>
-                <h3><a href="https://arxiv.org/abs/2211.13854" target="_blank">ComCLIP: Training-Free Compositional Image and Text Matching</a></h3>
-                <p class="pub-authors">Kenan Jiang*, Xuehai He*, Ruize Xu, Xin Eric Wang</p>
-                <p class="pub-desc">Improving zero-shot image-text matching capabilities of Vision-Language Models without additional training.</p>
-            </li>
-            <li class="pub-item">
-                <p class="pub-venue">MLSys 2021</p>
-                <h3><a href="https://proceedings.mlsys.org/paper_files/paper/2021/file/099268c3121d49937a67a052c51f865d-Paper.pdf" target="_blank">Wavelet: Efficient DNN Training with Tick-Tock Scheduling</a></h3>
-                <p class="pub-authors">Guanhua Wang, Kehan Wang, Kenan Jiang, Xiangjun Li, Ion Stoica</p>
-                <p class="pub-desc">Accelerating DNN training by intelligently utilizing available GPU memory throughout the process.</p>
-            </li>
-        </ul>
-    </section>
-
-    <section id="contact">
-        <div class="section-label">Contact</div>
-        <p>Reach me at <a href="mailto:kenan.jiang@emory.edu">kenan.jiang@emory.edu</a></p>
-    </section>
-
-</div>
-
-<footer>
-    <div style="display:flex; flex-direction:column; align-items:center; gap:0.75rem; padding: 2rem 0 1rem;">
-        <div style="width:160px; height:160px; overflow:hidden; display:flex; justify-content:center;">
-            <script type="text/javascript" id="mapmyvisitors" src="//mapmyvisitors.com/map.js?d=eKeclA6p1VYOgbOR19qBcW0B0kdkpJpPmTUkyAxjbc0&cl=ffffff&w=a"></script>
-        </div>
-        <p style="font-family:var(--mono);font-size:0.72rem;color:var(--border);letter-spacing:0.08em;">&copy; 2024 Kenan Jiang &middot; All rights reserved.</p>
-    </div>
-</footer>
+    </footer>
 </body>
 </html>
-
