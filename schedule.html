@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Check Kenan Jiang's availability and get in touch to arrange a meeting.">
+    <meta name="author" content="Kenan Jiang">
+    <meta property="og:title" content="Schedule - Kenan Jiang">
+    <meta property="og:description" content="Availability and meeting coordination.">
+    <meta property="og:type" content="website">
+    <title>Schedule - Kenan Jiang</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="schedule.css">
+    <script src="script.js" defer></script>
+    <script src="schedule-config.js" defer></script>
+    <script src="schedule.js" defer></script>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav" aria-label="Main navigation">
+            <div class="nav-container">
+                <a href="index.html#bio" class="nav-link">Bio</a>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="schedule.html" class="nav-link active" aria-current="page">Schedule</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main schedule-main" aria-label="Schedule">
+        <div class="container">
+            <section class="schedule-panel" aria-labelledby="availability-title">
+                <div class="schedule-toolbar">
+                    <div>
+                        <h2 id="availability-title">Availability</h2>
+                        <p id="calendar-timezone" hidden></p>
+                    </div>
+                    <a id="calendar-link" class="link" target="_blank" rel="noopener noreferrer" hidden>Open in Google Calendar <span aria-hidden="true">↗</span></a>
+                </div>
+                <div id="calendar-placeholder" class="schedule-placeholder">
+                    <h3>Availability calendar coming soon</h3>
+                    <p>For now, please email me to find a time to meet.</p>
+                </div>
+                <div id="calendar-container" class="calendar-container" hidden>
+                    <iframe id="availability-calendar" title="Kenan Jiang's Google Calendar availability" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+                </div>
+                <noscript><p class="schedule-note">Please enable JavaScript to view the calendar, or email me to check availability.</p></noscript>
+            </section>
+            <p id="calendar-note" class="schedule-note" hidden>Busy blocks show when I'm tied up. If the calendar doesn't load, you can open it in Google Calendar using the link above.</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; <span id="current-year">2026</span> Kenan Jiang. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
